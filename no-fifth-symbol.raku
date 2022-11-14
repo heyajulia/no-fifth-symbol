@@ -14,6 +14,6 @@ for ((1..*) Z $*IN.lines) -> ($ln-no, $ln) {
 if $violations > 0 {
     say "\n\n$violations violations found. Fix your program.";
     exit 1;
-} else {
-    say "\n\nNo violations found. Good job!";
 }
+
+say "\n\nNo violations found. Good job!";
