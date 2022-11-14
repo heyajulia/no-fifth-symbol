@@ -3,12 +3,11 @@ unit sub MAIN();
 my $violations = 0;
 
 for ((1..*) Z $*IN.lines) -> ($ln-no, $ln) {
-    if $ln ~~ rx:i/\x65/ {
-        $violations += $ln.comb ~~ m:i:g/\x65/;
+    if $ln ~~ rx:i/\x45 | \x65/ {
+        $violations += $ln.comb ~~ m:i:g/\x45 | \x65/;
 
         printf "%-4s | ", $ln-no;
-        
-        say S:i:g/(\x65)/\o33[91m$0\o33[0m/ with $ln;
+        say S:i:g/(\x45 | \x65)/\x1b[91m$0\x1b[0m/ with $ln;
     }
 }
 
