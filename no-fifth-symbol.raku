@@ -12,8 +12,10 @@ for $*IN."lin\x65s"().kv -> $i, $ln {
 }
 
 if $violations > 0 {
-    say "\n\n$violations violation(s) found. Fix your program.";
-    exit 1;
+    my $s = $violations == 1 ?? '' !! 's';
+
+    say "\n\n$violations violation$s found. Fix your input.";
+    ::("&\x65xit")(1);
 }
 
-say "\n\nNo violations found. Good job!";
+say "No violations found. Good job!";
